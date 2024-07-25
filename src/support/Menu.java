@@ -1,3 +1,7 @@
+package support;
+
+import entity.Produto;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -79,7 +83,7 @@ public class Menu {
         }
         produto.setStatusProduto(status_produto);
 
-        System.out.println("Produto Cadastrado com Sucesso!");
+        System.out.println("entity.Produto Cadastrado com Sucesso!");
 
     }
 

@@ -1,3 +1,5 @@
+package entity;
+
 public class Endereco {
 
     private int idEndereco;
