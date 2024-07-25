@@ -1,30 +1,45 @@
-public class Produto{
-    private String nomeProduto;
-    private int codigo;
+public class Produto {
+
+    private int idProduto;
     private int idFornecedor;
+    private String nomeProduto;
     private String descricao;
     private double precoDeCompra;
+    private String dataCompra;
     private String status;
     private int quantidade;
     private double peso;
 
+    public int getIdProduto() {
+        return idProduto;
+    }
 
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
+    }
 
+    public int getIdFornecedor() {
+        return idFornecedor;
+    }
 
-    public void setNomeProduto(String nomeProduto){
+    public void setIdFornecedor(int idFornecedor) {
+        this.idFornecedor = idFornecedor;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
 
-    public String getNomeProduto(){
-        return this.nomeProduto;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public double getPrecoDeCompra() {
@@ -35,27 +50,12 @@ public class Produto{
         this.precoDeCompra = precoDeCompra;
     }
 
-    public int getIdFornecedor() {
-        return idFornecedor;
+    public String getDataCompra() {
+        return dataCompra;
     }
 
-    public void setIdFornecedor(int idFornecedor) {
-        this.idFornecedor = idFornecedor;
-    }
-    public int getQuantidade(){
-        return quantidade;
-    }
-
-    public double getPeso(){
-        return peso;
-    }
-
-    public void setPeso(double peso){
-        this.peso = peso;
-    }
-
-    public void setquantidade(int quantidade){
-        this.quantidade = quantidade;
+    public void setDataCompra(String dataCompra) {
+        this.dataCompra = dataCompra;
     }
 
     public String getStatus() {
@@ -66,11 +66,19 @@ public class Produto{
         this.status = status;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 }
