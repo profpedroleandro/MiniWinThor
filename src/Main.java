@@ -1,8 +1,16 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        
-        Produtos produto01 = new Produtos();
+
+        int opcao;
+        Scanner scanner = new Scanner(System.in);
+
         Util.menu_principal();
-        produto01.cadastrarProduto();
+        System.out.println("\nDigite a opção desejada: ");
+        opcao = scanner.nextInt();
+        scanner.nextLine();
+        Util.escolhas_menu_principal(opcao);
+
     }
 }
