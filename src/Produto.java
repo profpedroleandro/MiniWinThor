@@ -1,67 +1,55 @@
-import javax.xml.crypto.Data;
+import java.util.Date;
 
-public class Produto{
-    private int codigo;
+public class Produto {
+
+    private int idProduto;
     private String nome;
     private String descricao;
     private String garantia;
     private int quantidade;
     private double precoDeVenda;
     private double precoDeCompra;
-    private String status_produto;
-    private Data dataDaUltimaCompra;
+    private String statusProduto;
+    private String dataDaUltimaCompra;
 
-    public int getQuantidade(){
-        return quantidade;
-    }
-    public void setQuantidade(int quantidade){
-        this.quantidade = quantidade;
-    }
-    public Data getDataDaUltimaCompra(){
-        return dataDaUltimaCompra;
-    }
-    public void setDataDaUltimaCompra(Data dataDaUltimaCompra){
-        this.dataDaUltimaCompra = dataDaUltimaCompra;
+    public int getIdProduto() {
+        return idProduto;
     }
 
-    public  String getGarantia(){
-        return garantia;
-    }
-    public void setGarantia(String garantia){
-        this.garantia = garantia;
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-
-    public int getCodigo() {
-        return codigo;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public double getPrecoDeCompra() {
-        return precoDeCompra;
+    public String getGarantia() {
+        return garantia;
     }
 
-    public void setPrecoDeCompra(double precoDeCompra) {
-        this.precoDeCompra = precoDeCompra;
+    public void setGarantia(String garantia) {
+        this.garantia = garantia;
     }
 
-    public String getStatus() {
-        return status_produto;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setStatus(String status) {
-        this.status_produto = status;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public double getPrecoDeVenda() {
@@ -72,11 +60,27 @@ public class Produto{
         this.precoDeVenda = precoDeVenda;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public double getPrecoDeCompra() {
+        return precoDeCompra;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setPrecoDeCompra(double precoDeCompra) {
+        this.precoDeCompra = precoDeCompra;
+    }
+
+    public String getStatusProduto() {
+        return statusProduto;
+    }
+
+    public void setStatusProduto(String statusProduto) {
+        this.statusProduto = statusProduto;
+    }
+
+    public String getDataDaUltimaCompra() {
+        return dataDaUltimaCompra;
+    }
+
+    public void setDataDaUltimaCompra(String dataDaUltimaCompra) {
+        this.dataDaUltimaCompra = dataDaUltimaCompra;
     }
 }

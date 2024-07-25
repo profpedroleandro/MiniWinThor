@@ -1,96 +1,102 @@
-import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class Menu {
-public static void menu(){
-    int oqver;
-    System.out.println("*************************************MENU*********************************");
-    System.out.println("1.Cadastro de Produtos ");
-    System.out.println("2.Lista de Produtos ");
-    System.out.println("3.Procurar Produtos ");
-    System.out.println("4.Excluir Produtos ");
-    System.out.println("0.Sair");
-    System.out.println("**********************************FIM MENU*******************************");
-    System.out.println("Digite qual que voce quer:");
-    oqver = (new Scanner(System.in)).nextInt();
+    public static void menu() {
 
-int opicao=(new Scanner(System.in)).nextInt();;
-    switch (opicao){
-        case 1:
-            Scanner sc = new Scanner(System.in);
-            String nomedoproduto,descricao,garantia;
-            int quantidade,precodeVenda,precodeCompra,statusProduto;
-            Data datadaUltimaCompra;
+        Scanner entrada = new Scanner(System.in);
+        int opcao;
 
-            System.out.println("******************Cadastro de Produtos*********************");
-            System.out.println("Digite o nome do produto: ");
-            nomedoproduto = sc.nextLine();
-            System.out.println("Digite a descriçao do produto: ");
-            descricao = sc.nextLine();
-            System.out.println("Digite a garantia do produto: ");
-            garantia = sc.nextLine();
-            System.out.println("Digite a quantidade do produto: ");
-            quantidade = sc.nextInt();
-            System.out.println("Digite o preço de venda do produto: ");
-            precodeVenda = sc.nextInt();
-            System.out.println("Digite o preço de compra do produto: ");
-            precodeCompra = sc.nextInt();
-            System.out.println("Digite o status do produto[1.ativo ou 2.fora de linha]: ");
-            statusProduto = sc.nextInt();
-            if(statusProduto == 1){
-                System.out.println("ativo");
-            }
-            else if(statusProduto == 2){
-                System.out.println("fora de linha");
+        do {
+            System.out.println("*************************************MENU*********************************");
+            System.out.println("1.Cadastro de Produtos ");
+            System.out.println("2.Lista de Produtos ");
+            System.out.println("3.Procurar Produtos ");
+            System.out.println("4.Excluir Produtos ");
+            System.out.println("0.Sair");
+            System.out.println("**********************************FIM MENU*******************************");
+            System.out.println("Selecione uma das opções acima.");
+            opcao = entrada.nextInt();
+
+            switch (opcao) {
+                case 0:
+                    System.exit(0);
+                    break;
+                case 1:
+                    cadastrarProduto();
+                    break;
+                case 2:
+                    listaDeProdutos();
+                    break;
+                default:
+                    System.out.println("Digite uma opção válida");
+                    break;
             }
 
-            break;
+        } while (true);
     }
 
+    private static void cadastrarProduto() {
 
-}
-public static void  CadastrodeProdutos(){
-    Scanner sc = new Scanner(System.in);
-    String nomedoproduto,descricao,garantia;
-    int quantidade,precodeVenda,precodeCompra,statusProduto;
-    Data datadaUltimaCompra;
+        Produto produto = new Produto();
 
-    System.out.println("******************Cadastro de Produtos*********************");
-    System.out.println("Digite o nome do produto: ");
-    nomedoproduto = sc.nextLine();
-    System.out.println("Digite a descriçao do produto: ");
-    descricao = sc.nextLine();
-    System.out.println("Digite a garantia do produto: ");
-    garantia = sc.nextLine();
-    System.out.println("Digite a quantidade do produto: ");
-    quantidade = sc.nextInt();
-    System.out.println("Digite o preço de venda do produto: ");
-    precodeVenda = sc.nextInt();
-    System.out.println("Digite o preço de compra do produto: ");
-    precodeCompra = sc.nextInt();
-    System.out.println("Digite o status do produto[1.ativo ou 2.fora de linha]: ");
-    statusProduto = sc.nextInt();
-    if(statusProduto == 1){
-        System.out.println("ativo");
+        Scanner entrada = new Scanner(System.in);
+
+        String nomedoproduto, descricao, garantia;
+        int quantidade, escolha;
+        double precodeVenda, precodeCompra;
+        String datadaUltimaCompra;
+
+        System.out.println("******************Cadastro de Produtos*********************");
+        System.out.println("Digite o nome do produto: ");
+        nomedoproduto = entrada.nextLine();
+        produto.setNome(nomedoproduto);
+        System.out.println("Digite a descriçao do produto: ");
+        descricao = entrada.nextLine();
+        produto.setDescricao(descricao);
+        System.out.println("Digite a garantia do produto: ");
+        garantia = entrada.nextLine();
+        produto.setGarantia(garantia);
+        System.out.println("Digite a quantidade do produto: ");
+        quantidade = entrada.nextInt();
+        produto.setQuantidade(quantidade);
+        System.out.println("Digite o preço de venda do produto: ");
+        precodeVenda = entrada.nextDouble();
+        produto.setPrecoDeVenda(precodeVenda);
+        System.out.println("Digite o preço de compra do produto: ");
+        precodeCompra = entrada.nextDouble();
+        produto.setPrecoDeCompra(precodeCompra);
+        System.out.println("Informe a data da sua última compra");
+        datadaUltimaCompra = entrada.nextLine();
+        entrada.nextLine();
+        produto.setDataDaUltimaCompra(datadaUltimaCompra);
+        System.out.println("Informe o status do produto: 1 para 'Ativo' ou 2 para 'Fora de linha'");
+        escolha = entrada.nextInt();
+
+        String status_produto = "ativo";
+
+        if (escolha == 2) {
+            status_produto = "fora de linha";
+        }
+        produto.setStatusProduto(status_produto);
+
+        System.out.println("Produto Cadastrado com Sucesso!");
+
     }
-    else if(statusProduto == 2){
-        System.out.println("fora de linha");
+
+    private static void listaDeProdutos() {
+
+        Produto produto = new Produto();
+
+        System.out.println("********************Listar Produtos********************");
+        System.out.println("Nome do produto: " + produto.getNome());
+        System.out.println("Descrição: " + produto.getDescricao());
+        System.out.println("Garantia: " + produto.getGarantia());
+        System.out.println("Quantidade: " + produto.getQuantidade());
+        System.out.println("Preço de Venda: " + produto.getPrecoDeVenda());
+        System.out.println("Preço de Compra: " + produto.getPrecoDeCompra());
+        System.out.println("Data da Última compra: " + produto.getDataDaUltimaCompra());
+        System.out.println("Status: " + produto.getStatusProduto());
+
+
     }
-
-
-    System.out.println("O produto "+nomedoproduto+"castrado com sucesso!");
-    System.out.println(descricao+" do produto cadastrado com sucesso");
-    System.out.println(garantia+ " de garantian cadastrado com sucesso");
-    System.out.println(quantidade+ " de quantidade de produtos");
-    System.out.println("O preco de venda e "+precodeVenda+ "do produto");
-    System.out.println("O preco de compra e "+precodeCompra+ "do produto");
-    System.out.println("O status do produto "+statusProduto+ "do produto");
-}
-
-public static void ListaDeProdutos(){
-    Scanner sc = new Scanner(System.in);
-    String nomedoproduto = "";
-    System.out.println("******************Lista de Produtos*********************");
-    System.out.println("Nome dos produtos " +nomedoproduto);
-}
 }
