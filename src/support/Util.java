@@ -1,3 +1,8 @@
+package support;
+
+import entity.Produto;
+import repository.ProdutoRepository;
+
 import java.util.Scanner;
 
 public class Util {
@@ -62,9 +67,9 @@ public class Util {
     public static void cadastrarProduto() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nCadastro de Produto:");
+        System.out.println("\nCadastro de entity.Produto:");
 
-        System.out.print("Nome do Produto: ");
+        System.out.print("Nome do entity.Produto: ");
         String nome = scanner.nextLine();
 
         System.out.print("Preço de Compra: ");
@@ -76,7 +81,7 @@ public class Util {
         System.out.print("Quantidade: ");
         int quantidade = scanner.nextInt();
 
-        System.out.print("Código do Produto: ");
+        System.out.print("Código do entity.Produto: ");
         String codigoProduto = scanner.nextLine();
         scanner.nextLine();
 
@@ -101,9 +106,15 @@ public class Util {
         System.out.print("ID do Fornecedor: ");
         int fornecedor = scanner.nextInt();
 
+
+        Produto produto = new Produto();
+        produto.setNome(nome);
+
+        new ProdutoRepository().cadastrarProduto(produto);
+
         //TODO invocar o método implementado para salvar os dados no database
 
-        System.out.println("Produto cadastrado com sucesso.");
+        System.out.println("entity.Produto cadastrado com sucesso.");
 
     }
 

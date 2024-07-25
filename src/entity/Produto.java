@@ -1,4 +1,4 @@
-import java.util.Date;
+package entity;
 
 public class Produto {
 
