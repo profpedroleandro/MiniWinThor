@@ -1,4 +1,5 @@
 import entity.Produto;
+import repository.ProdutoRepository;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -23,11 +24,11 @@ public class Main {
 
     private static void menuPrincipal() {
         System.out.println("\n--- Sistema de Cadastro de Produtos ---");
-        System.out.println("1. Cadastrar models.Produto");
+        System.out.println("1. Cadastrar Produto");
         System.out.println("2. Listar Produtos");
-        System.out.println("3. Buscar models.Produto");
-        System.out.println("4. Editar models.Produto");
-        System.out.println("5. Remover models.Produto");
+        System.out.println("3. Buscar Produto");
+        System.out.println("4. Editar Produto");
+        System.out.println("5. Remover Produto");
         System.out.println("0. Sair");
 
         System.out.print("Digite a opção desejada: ");
@@ -66,6 +67,7 @@ public class Main {
     }
 
     private static void cadastrarProduto() {
+
         System.out.print("Insira o nome do produto: ");
         String nome = leia.nextLine();
 
@@ -88,8 +90,19 @@ public class Main {
         leia.nextLine();
 
         //TODO implementação do método para cadastrar no banco de dados
+        Produto produto  = new Produto();
+        produto.setNomeProduto(nome);
+        produto.setIdFornecedor(idFornecedor);
+        produto.setDescricao(descricao);
+        produto.setPrecoDeCompra(precoDeCompra);
+        produto.setStatus(status);
+        produto.setPeso(peso);
 
-        System.out.println("models.Produto cadastrado com sucesso!");
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.inserirProduto(produto);
+
+
+        System.out.println("Produto cadastrado com sucesso!");
 
     }
 
@@ -113,7 +126,7 @@ public class Main {
         if (produto != null) {
             System.out.println(produto);
         } else {
-            System.out.println("models.Produto não encontrado.");
+            System.out.println("Produto não encontrado.");
         }
     }
 
@@ -153,40 +166,40 @@ public class Main {
                 System.out.print("Insira o novo nome do produto: ");
                 String nome = leia.nextLine();
                 produto.setNomeProduto(nome);
-                System.out.println("models.Produto alterado com sucesso!");
+                System.out.println("Produto alterado com sucesso!");
                 break;
             case 2:
                 System.out.print("Informe o novo ID do fornecedor: ");
                 int idFornecedor = leia.nextInt();
                 leia.nextLine();
                 produto.setIdFornecedor(idFornecedor);
-                System.out.println("models.Produto alterado com sucesso!");
+                System.out.println("Produto alterado com sucesso!");
                 break;
             case 3:
                 System.out.print("Insira a nova descrição do produto: ");
                 String descricao = leia.nextLine();
                 produto.setDescricao(descricao);
-                System.out.println("models.Produto alterado com sucesso!");
+                System.out.println("Produto alterado com sucesso!");
                 break;
             case 4:
                 System.out.print("Insira o novo preço de compra: ");
                 double precoDeCompra = leia.nextDouble();
                 leia.nextLine();
                 produto.setPrecoDeCompra(precoDeCompra);
-                System.out.println("models.Produto alterado com sucesso!");
+                System.out.println("Produto alterado com sucesso!");
                 break;
             case 5:
                 System.out.print("Informe o novo status do produto: ");
                 String status = leia.nextLine();
                 produto.setStatus(status);
-                System.out.println("models.Produto alterado com sucesso!");
+                System.out.println("Produto alterado com sucesso!");
                 break;
             case 6:
                 System.out.print("Informe o novo peso do produto: ");
                 double peso = leia.nextDouble();
                 leia.nextLine();
                 produto.setPeso(peso);
-                System.out.println("models.Produto alterado com sucesso!");
+                System.out.println("Produto alterado com sucesso!");
                 break;
             case 0:
                 System.out.println("\nSaindo do sistema...");
@@ -206,9 +219,9 @@ public class Main {
 
         if (produto != null) {
             listaDeProdutos.remove(produto);
-            System.out.println("models.Produto removido com sucesso!");
+            System.out.println("Produto removido com sucesso!");
         } else {
-            System.out.println("models.Produto não encontrado.");
+            System.out.println("Produto não encontrado.");
         }
     }
 }

@@ -11,7 +11,9 @@ import java.sql.SQLException;
  */
 public class Conexao {
 
-    private static final String url = "jdbc:mysql://localhost:3306/miniwinthor";
+    private static final String url = "jdbc:mysql://localhost:3306/";
+    private static final String bancoDeDados = "gerenciamento";
+    private static final String host = url + bancoDeDados;
     private static final String usuario = "root";
     private static final String senha = "";
 
@@ -21,7 +23,7 @@ public class Conexao {
 
         try {
             if (minhaConexao == null) {
-                minhaConexao = DriverManager.getConnection(url, usuario, senha);
+                minhaConexao = DriverManager.getConnection(host, usuario, senha);
                 return minhaConexao;
             }else{
                 return minhaConexao;
