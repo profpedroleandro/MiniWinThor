@@ -9,7 +9,7 @@ public class ProdutoRepository {
 
     public void cadastrarProduto(Produto produto) {
 
-        String comandoSQL = "INSERT INTO produtos (nome, descricao, garantia, quantidade ,precoDeVenda ,precoDeCompra ,statusProduto ,dataDaUltimaCompra) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String comandoSQL = "INSERT INTO produtos (nome, descricao, garantia, quantidade ,precoVenda ,precoCompra ,dataDaUltimaCompra ,status_produto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = null;
 
@@ -21,8 +21,8 @@ public class ProdutoRepository {
             preparedStatement.setInt(   4, produto.getQuantidade());
             preparedStatement.setDouble(5, produto.getPrecoDeVenda());
             preparedStatement.setDouble(6, produto.getPrecoDeCompra());
-            preparedStatement.setString(7, produto.getStatusProduto());
-            preparedStatement.setString(8, produto.getDataDaUltimaCompra());
+            preparedStatement.setString(7, produto.getDataDaUltimaCompra());
+            preparedStatement.setString(8, produto.getStatusProduto());
 
 
             preparedStatement.execute();

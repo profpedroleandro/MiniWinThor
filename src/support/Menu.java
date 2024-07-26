@@ -71,8 +71,9 @@ public class Menu {
         precodeCompra = entrada.nextDouble();
         produto.setPrecoDeCompra(precodeCompra);
         System.out.println("Informe a data da sua última compra (ano-mês-dia)");
-        datadaUltimaCompra = entrada.nextLine();
         entrada.nextLine();
+        datadaUltimaCompra = entrada.nextLine();
+
         produto.setDataDaUltimaCompra(datadaUltimaCompra);
         System.out.println("Informe o status do produto: 1 para 'Ativo' ou 2 para 'Fora de linha'");
         escolha = entrada.nextInt();
@@ -88,7 +89,7 @@ public class Menu {
         produtoRepository.cadastrarProduto(produto);
 
 
-        System.out.println("Produto Cadastrado com Sucesso!");
+        System.out.println(".Produto Cadastrado com Sucesso!");
 
     }
 
