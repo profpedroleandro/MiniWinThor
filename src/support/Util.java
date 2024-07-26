@@ -67,9 +67,11 @@ public class Util {
     public static void cadastrarProduto() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nCadastro de entity.Produto:");
+        Produto produto = new Produto();
 
-        System.out.print("Nome do entity.Produto: ");
+        System.out.println("\nCadastro de Produto:");
+
+        System.out.print("Nome do Produto: ");
         String nome = scanner.nextLine();
 
         System.out.print("Preço de Compra: ");
@@ -81,15 +83,14 @@ public class Util {
         System.out.print("Quantidade: ");
         int quantidade = scanner.nextInt();
 
-        System.out.print("Código do entity.Produto: ");
-        String codigoProduto = scanner.nextLine();
-        scanner.nextLine();
+        System.out.print("Código do Produto: ");
+        int codigoProduto = scanner.nextInt();
 
         System.out.print("Descrição: ");
         String descricao = scanner.nextLine();
 
         System.out.print("Data de Validade (aaaa-mm-dd): ");
-        String dataValidadeStr = scanner.next();
+        String dataValidade = scanner.next();
         scanner.nextLine();
 
         System.out.print("Disponibilidade (Ativo/Fora de Linha): ");
@@ -97,22 +98,27 @@ public class Util {
 
 
 
-        if (disponibilidade.equals("Fora de Linha")){
-            disponibilidade = "Fora de Linha";
+        if (disponibilidade.equals("FORA DE LINHA")){
+            disponibilidade = "FORA DE LINHA";
         } else {
-            disponibilidade = "Ativo";
+            disponibilidade = "ATIVO";
         }
 
         System.out.print("ID do Fornecedor: ");
         int fornecedor = scanner.nextInt();
 
-
-        Produto produto = new Produto();
         produto.setNome(nome);
+        produto.setPreco_compra(precoCompra);
+        produto.setPreco_venda(precoVenda);
+        produto.setQuantidade(quantidade);
+        produto.setCodigo_do_produto(codigoProduto);
+        produto.setDescricao(descricao);
+        produto.setData_de_validade(dataValidade);
+        produto.setDisponibilidade(disponibilidade);
+        produto.setFornecedor(fornecedor);
+
 
         new ProdutoRepository().cadastrarProduto(produto);
-
-        //TODO invocar o método implementado para salvar os dados no database
 
         System.out.println("entity.Produto cadastrado com sucesso.");
 

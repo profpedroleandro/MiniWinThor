@@ -7,15 +7,13 @@ public class Produto {
     private double preco_compra;
     private double preco_venda;
     private int quantidade;
-    private String codigo_do_produto;
+    private int codigo_do_produto;
     private String descricao;
     private String data_de_validade;
     private String disponibilidade;
     private int fornecedor;
 
-    public int getIdProduto() {
-        return idProduto;
-    }
+    public int getIdProduto() {return idProduto; }
 
     public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
@@ -53,11 +51,11 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public String getCodigo_do_produto() {
+    public int getCodigo_do_produto() {
         return codigo_do_produto;
     }
 
-    public void setCodigo_do_produto(String codigo_do_produto) {
+    public void setCodigo_do_produto(int codigo_do_produto) {
         this.codigo_do_produto = codigo_do_produto;
     }
 

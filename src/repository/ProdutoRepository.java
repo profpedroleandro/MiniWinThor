@@ -7,19 +7,23 @@ import java.sql.*;
 
 public class ProdutoRepository {
 
-    public void cadqastrarProduto(Produto produto) {
+    public void cadastrarProduto(Produto produto) {
 
-        String comandoSQL = "INSERT INTO produtos (nome, descricao, preco, status_prod) VALUES (?, ?, ?, ?)";
+        String comandoSQL = "INSERT INTO produtos (`nome`, `preco_compra`, `preco_venda`, `quantidade`, `codigo_do_produto`, `descricao`, `data_de_validade`, `disponibilidade`, `fornecedor`) VALUES (?, ?, ?, ?. ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = null;
 
         try {
             preparedStatement = Conexao.getMinhaConexao().prepareStatement(comandoSQL);
             preparedStatement.setString(1, produto.getNome());
-            preparedStatement.setString(2, produto.getDescricao());
-            preparedStatement.setDouble(3, produto.getPreco());
-            preparedStatement.setString(4, produto.getStatus());
-
+            preparedStatement.setDouble(2, produto.getPreco_compra());
+            preparedStatement.setDouble(3, produto.getPreco_venda());
+            preparedStatement.setInt(4, produto.getQuantidade());
+            preparedStatement.setInt(5, produto.getCodigo_do_produto());
+            preparedStatement.setString(6, produto.getDescricao());
+            preparedStatement.setString(7, produto.getData_de_validade());
+            preparedStatement.setString(8, produto.getDisponibilidade());
+            preparedStatement.setInt(9, produto.getFornecedor());
             preparedStatement.execute();
             preparedStatement.close();
 
