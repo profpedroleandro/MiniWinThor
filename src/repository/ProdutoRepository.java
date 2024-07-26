@@ -9,7 +9,7 @@ public class ProdutoRepository {
 
     public void cadastrarProduto(Produto produto) {
 
-        String comandoSQL = "INSERT INTO produtos (nome, descricao, preco, status_prod) VALUES (?, ?, ?, ?)";
+        String comandoSQL = "INSERT INTO produtos (nome, descricao, garantia, quantidade ,precoDeVenda ,precoDeCompra ,statusProduto ,dataDaUltimaCompra) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = null;
 
@@ -17,8 +17,13 @@ public class ProdutoRepository {
             preparedStatement = Conexao.getMinhaConexao().prepareStatement(comandoSQL);
             preparedStatement.setString(1, produto.getNome());
             preparedStatement.setString(2, produto.getDescricao());
-            preparedStatement.setDouble(3, produto.getPreco());
-            preparedStatement.setString(4, produto.getStatus());
+            preparedStatement.setString(3, produto.getGarantia());
+            preparedStatement.setInt(   4, produto.getQuantidade());
+            preparedStatement.setDouble(5, produto.getPrecoDeVenda());
+            preparedStatement.setDouble(6, produto.getPrecoDeCompra());
+            preparedStatement.setString(7, produto.getStatusProduto());
+            preparedStatement.setString(8, produto.getDataDaUltimaCompra());
+
 
             preparedStatement.execute();
             preparedStatement.close();

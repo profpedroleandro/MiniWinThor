@@ -1,6 +1,7 @@
 package support;
 
 import entity.Produto;
+import repository.ProdutoRepository;
 
 import java.util.Scanner;
 
@@ -69,7 +70,7 @@ public class Menu {
         System.out.println("Digite o preço de compra do produto: ");
         precodeCompra = entrada.nextDouble();
         produto.setPrecoDeCompra(precodeCompra);
-        System.out.println("Informe a data da sua última compra");
+        System.out.println("Informe a data da sua última compra (ano-mês-dia)");
         datadaUltimaCompra = entrada.nextLine();
         entrada.nextLine();
         produto.setDataDaUltimaCompra(datadaUltimaCompra);
@@ -83,7 +84,11 @@ public class Menu {
         }
         produto.setStatusProduto(status_produto);
 
-        System.out.println("entity.Produto Cadastrado com Sucesso!");
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.cadastrarProduto(produto);
+
+
+        System.out.println("Produto Cadastrado com Sucesso!");
 
     }
 
@@ -100,6 +105,7 @@ public class Menu {
         System.out.println("Preço de Compra: " + produto.getPrecoDeCompra());
         System.out.println("Data da Última compra: " + produto.getDataDaUltimaCompra());
         System.out.println("Status: " + produto.getStatusProduto());
+
 
 
     }
