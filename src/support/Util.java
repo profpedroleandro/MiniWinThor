@@ -85,9 +85,11 @@ public class Util {
 
         System.out.print("Código do Produto: ");
         int codigoProduto = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.print("Descrição: ");
         String descricao = scanner.nextLine();
+        scanner.nextLine();
 
         System.out.print("Data de Validade (aaaa-mm-dd): ");
         String dataValidade = scanner.next();
@@ -95,7 +97,6 @@ public class Util {
 
         System.out.print("Disponibilidade (Ativo/Fora de Linha): ");
         String disponibilidade = scanner.nextLine();
-
 
 
         if (disponibilidade.equals("FORA DE LINHA")){
