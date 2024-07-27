@@ -1,6 +1,8 @@
 package support;
 
 import entity.Produto;
+import entity.Fornecedor;
+import repository.FornecedorRepository;
 import repository.ProdutoRepository;
 
 import java.util.Scanner;
@@ -14,6 +16,7 @@ public class Util {
         System.out.println("3 - Consultar produto");
         System.out.println("4 - Atualizar produto");
         System.out.println("5 - Excluir produto");
+        System.out.println("6 - Fornecedor");
         System.out.println("0 - Encerrar programa");
         System.out.println("============================================");
     }
@@ -29,7 +32,7 @@ public class Util {
                     continuar = false;
                     break;
                 case 1:
-                    System.out.println("------------------ Cadastrar ------------------\n");
+                    System.out.println("------------------ Cadastrar Produto ------------------\n");
                     cadastrarProduto();
                     Util.menu_principal();
                     break;
@@ -51,6 +54,11 @@ public class Util {
                 case 5:
                     System.out.println("Excluir produto\n");
                     // Lógica para excluir produto
+                    Util.menu_principal();
+                    break;
+                case 6:
+                    System.out.println("------------------ Cadastrar Fornecedor ------------------\n");
+                    cadastrarFornecedor();
                     Util.menu_principal();
                     break;
                 default:
@@ -121,9 +129,50 @@ public class Util {
 
         new ProdutoRepository().cadastrarProduto(produto);
 
-        System.out.println("entity.Produto cadastrado com sucesso.");
+        System.out.println("Produto cadastrado com sucesso.");
 
     }
+
+
+    public static void cadastrarFornecedor() {
+        Scanner scanner = new Scanner(System.in);
+
+        Fornecedor fornecedor = new Fornecedor();
+
+        System.out.print("cnpj: ");
+        String cnpj = scanner.nextLine();
+
+
+        System.out.print("Razão social: ");
+        String razaoSocial = scanner.nextLine();
+
+
+        System.out.print("Nome fantasia: ");
+        String nomeFantasia = scanner.nextLine();
+
+
+        System.out.print("Cidade: ");
+        String cidade = scanner.nextLine();
+
+
+        System.out.print("inscrição estadual: ");
+        String incricao = scanner.nextLine();
+
+
+        // Configurar outros atributos do fornecedor conforme necessário
+            fornecedor.setCnpj(cnpj);
+            fornecedor.setRazao_social(razaoSocial);
+            fornecedor.setNome_fantasia(nomeFantasia);
+            fornecedor.setCidade(cidade);
+            fornecedor.setInscricao_estadual(incricao);
+
+
+        // Supondo que ProdutoRepository seja uma classe que lida com o cadastro de produtos
+        new FornecedorRepository().cadastrarFornecedor(fornecedor);
+
+        System.out.println("Produto cadastrado com sucesso.");
+    }
+
 
     private static int ler_opcao_do_usuario() {
         Scanner scanner = new Scanner(System.in);

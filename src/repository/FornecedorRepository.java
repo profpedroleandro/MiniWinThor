@@ -2,7 +2,7 @@ package repository;
 
 import conexao.Conexao;
 import entity.Fornecedor;
-import entity.Produto;
+
 
 import java.sql.*;
 
@@ -10,7 +10,7 @@ public class FornecedorRepository {
 
     public void cadastrarFornecedor(Fornecedor fornecedor) {
 
-        String comandoSQL = "INSERT INTO produtos (`cnpj`, `razao_social´, `nome_fantasia`, `cidade`, `inscricao_estadual`) VALUES (?, ?, ?, ?, ?)";
+        String comandoSQL = "INSERT INTO fornecedores (`cnpj`, `razao_social`, `nome_fantasia`, `cidade`, `inscricao_estadual`) VALUES (?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = null;
 
