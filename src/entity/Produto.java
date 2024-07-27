@@ -3,7 +3,7 @@ package entity;
 public class Produto {
 
     private int idProduto;
-    private int idFornecedor;
+    private int fornecedor;
     private String nomeProduto;
     private String descricao;
     private double precoDeCompra;
@@ -22,11 +22,11 @@ public class Produto {
     }
 
     public int getIdFornecedor() {
-        return idFornecedor;
+        return fornecedor;
     }
 
     public void setIdFornecedor(int idFornecedor) {
-        this.idFornecedor = idFornecedor;
+        this.fornecedor = idFornecedor;
     }
 
     public String getNomeProduto() {
@@ -84,4 +84,7 @@ public class Produto {
     public void setPeso(double peso) {
         this.peso = peso;
     }
+
+
+
 }

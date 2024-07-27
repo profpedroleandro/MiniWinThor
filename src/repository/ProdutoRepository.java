@@ -9,14 +9,14 @@ public class ProdutoRepository {
 
     public void inserirProduto(Produto produto) {
 
-        String comandoSQL = "INSERT INTO produtos (idFornecedor, nome, descricao, preco_compra, data_compra, status_produtos, quantidade, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String comandoSQL = "INSERT INTO produtos (fornecedor, nome, descricao, preco_compra, data_compra, status_produto, quantidade, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = null;
 
         try {
             preparedStatement = Conexao.getMinhaConexao().prepareStatement(comandoSQL);
-            preparedStatement.setString(1, produto.getNomeProduto());
-            preparedStatement.setInt(2, produto.getIdFornecedor());
+            preparedStatement.setInt(1, produto.getIdFornecedor());
+            preparedStatement.setString(2, produto.getNomeProduto());
             preparedStatement.setString(3, produto.getDescricao());
             preparedStatement.setDouble(4, produto.getPrecoDeCompra());
             preparedStatement.setString(5, produto.getDataCompra());

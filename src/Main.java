@@ -1,6 +1,6 @@
 import entity.Produto;
 import repository.ProdutoRepository;
-
+import suporte.MenuProduto;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +8,8 @@ public class Main {
 
     public static ArrayList<Produto> listaDeProdutos = new ArrayList<>();
     public static Scanner leia = new Scanner(System.in);
+
+    MenuProduto menuProduto = new MenuProduto();
 
     public static void main(String[] args) {
 
@@ -37,7 +39,7 @@ public class Main {
 
         switch (opcao) {
             case 1:
-                cadastrarProduto();
+                MenuProduto.cadastrarProduto();
                 break;
             case 2:
                 listarProdutos();
@@ -66,54 +68,9 @@ public class Main {
         return resposta.equals("S");
     }
 
-    private static void cadastrarProduto() {
-
-        System.out.print("Insira o nome do produto: ");
-        String nome = leia.nextLine();
-
-        System.out.print("Informe o ID do fornecedor: ");
-        int idFornecedor = leia.nextInt();
-        leia.nextLine();
-
-        System.out.print("Insira a descrição do produto: ");
-        String descricao = leia.nextLine();
-
-        System.out.print("Insira o preço de compra: ");
-        double precoDeCompra = leia.nextDouble();
-        leia.nextLine();
-
-        System.out.print("Informe o status do produto: ");
-        String status = leia.nextLine();
-
-        System.out.print("Informe o peso do produto: ");
-        double peso = leia.nextDouble();
-        leia.nextLine();
-
-        //TODO implementação do método para cadastrar no banco de dados
-        Produto produto  = new Produto();
-        produto.setNomeProduto(nome);
-        produto.setIdFornecedor(idFornecedor);
-        produto.setDescricao(descricao);
-        produto.setPrecoDeCompra(precoDeCompra);
-        produto.setStatus(status);
-        produto.setPeso(peso);
-
-        ProdutoRepository produtoRepository = new ProdutoRepository();
-        produtoRepository.inserirProduto(produto);
-
-
-        System.out.println("Produto cadastrado com sucesso!");
-
-    }
-
     private static void listarProdutos() {
-        if (listaDeProdutos.isEmpty()) {
-            System.out.println("Nenhum produto cadastrado.");
-        } else {
-            for (Produto produto : listaDeProdutos) {
-                System.out.println(produto);
-            }
-        }
+       ProdutoRepository produtoRepository = new ProdutoRepository();
+       produtoRepository.getProdutos();
     }
 
     private static void buscarProduto() {
@@ -149,12 +106,13 @@ public class Main {
 
         System.out.println("\n--- Sistema de Edição de Produtos ---");
         System.out.println("Digite oque deseja editar: ");
-        System.out.println("1.  Nome do models.Produto");
+        System.out.println("1.  Nome do Produto");
         System.out.println("2.  ID do Fornecedor");
-        System.out.println("3.  Descrição do models.Produto");
+        System.out.println("3.  Descrição do Produto");
         System.out.println("4.  Preço de Compra");
-        System.out.println("5.  Status do models.Produto");
-        System.out.println("6.  Peso do models.Produto");
+        System.out.println("5.  Data de Compra");
+        System.out.println("6.  Status do Produto");
+        System.out.println("7.  Peso do Produto");
         System.out.println("0. Sair");
 
         System.out.print("Digite a opção desejada: ");
@@ -189,12 +147,17 @@ public class Main {
                 System.out.println("Produto alterado com sucesso!");
                 break;
             case 5:
+                System.out.print("Informe a nova data de compra: ");
+                String dataCompra = leia.nextLine();
+                produto.setDataCompra(dataCompra);
+                break;
+            case 6:
                 System.out.print("Informe o novo status do produto: ");
                 String status = leia.nextLine();
                 produto.setStatus(status);
                 System.out.println("Produto alterado com sucesso!");
                 break;
-            case 6:
+            case 7:
                 System.out.print("Informe o novo peso do produto: ");
                 double peso = leia.nextDouble();
                 leia.nextLine();
