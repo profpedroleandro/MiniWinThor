@@ -102,7 +102,7 @@ public class ProdutoRepository {
 
     public void deletarProduto(int id) {
 
-        String comandoSQL = "DELETE FROM produtos WHERE idProduto =" + id;
+        String comandoSQL = "DELETE FROM produtos WHERE idProduto = ?" ;
 
         PreparedStatement preparedStatement = null;
 
@@ -118,8 +118,8 @@ public class ProdutoRepository {
 
     }
 
-    public void atualizarProduto(Produto produto) {
-        String comandoSQL = "UPDATE produtos SET fornecedor = ?, nome = ?, descricao = ?, preco_compra = ?, data_compra = ?, status_produto = ?, quantidade = ?, peso = ? WHERE idProduto = ?";
+    public void getAtualizarProduto(int id, Produto produto) {
+        String comandoSQL = "UPDATE produtos SET fornecedor = ?, nome = ?, descricao = ?, preco_compra = ?, data_compra = ?, status_produto = ?, quantidade = ?, peso = ? WHERE idProduto = ? ";
 
         PreparedStatement preparedStatement = null;
 
@@ -133,7 +133,7 @@ public class ProdutoRepository {
             preparedStatement.setString(6, produto.getStatus());
             preparedStatement.setInt(7, produto.getQuantidade());
             preparedStatement.setDouble(8, produto.getPeso());
-            preparedStatement.setInt(9, produto.getIdProduto());
+            preparedStatement.setInt(9, id);
 
             preparedStatement.execute();
             preparedStatement.close();
