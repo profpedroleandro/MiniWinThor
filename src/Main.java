@@ -42,16 +42,17 @@ public class Main {
                 MenuProduto.cadastrarProduto();
                 break;
             case 2:
-                listarProdutos();
+                MenuProduto.listarProdutos();
                 break;
             case 3:
-                buscarProduto();
+                MenuProduto.buscarProduto();
                 break;
             case 4:
                 editarProduto();
+
                 break;
             case 5:
-                removerProduto();
+                MenuProduto.removerProduto();
                 break;
             case 0:
                 System.out.println("\nSaindo do sistema...");
@@ -66,25 +67,6 @@ public class Main {
         System.out.print("\nDeseja voltar para o menu? (S/N): ");
         String resposta = leia.nextLine().toUpperCase();
         return resposta.equals("S");
-    }
-
-    private static void listarProdutos() {
-       ProdutoRepository produtoRepository = new ProdutoRepository();
-       produtoRepository.getProdutos();
-    }
-
-    private static void buscarProduto() {
-        System.out.print("Digite o código do produto que deseja buscar: ");
-        int codigo = leia.nextInt();
-        leia.nextLine();
-
-        Produto produto = encontrarProduto(codigo);
-
-        if (produto != null) {
-            System.out.println(produto);
-        } else {
-            System.out.println("Produto não encontrado.");
-        }
     }
 
     private static Produto encontrarProduto(int codigo) {
@@ -173,18 +155,5 @@ public class Main {
         }
     }
 
-    private static void removerProduto() {
-        System.out.print("Digite o código do produto que deseja remover: ");
-        int codigo = leia.nextInt();
-        leia.nextLine();
 
-        Produto produto = encontrarProduto(codigo);
-
-        if (produto != null) {
-            listaDeProdutos.remove(produto);
-            System.out.println("Produto removido com sucesso!");
-        } else {
-            System.out.println("Produto não encontrado.");
-        }
-    }
 }

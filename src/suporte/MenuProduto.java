@@ -2,8 +2,11 @@ package suporte;
 
 import entity.Produto;
 import repository.ProdutoRepository;
+import java.util.Scanner;
 
 public class MenuProduto {
+
+    public static Scanner leia = new Scanner(System.in);
 
     public static void cadastrarProduto() {
 
@@ -48,5 +51,35 @@ public class MenuProduto {
         System.out.println("Produto cadastrado com sucesso!");
 
     }
+        public static void listarProdutos() {
+            ProdutoRepository produtoRepository = new ProdutoRepository();
+            produtoRepository.getProdutos();
+        }
 
-}
+    public static void buscarProduto() {
+        System.out.print("Digite o código do produto que deseja buscar: ");
+        int codigo = leia.nextInt();
+        leia.nextLine();
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.getProdutoById(codigo);
+
+    }
+
+    public static void removerProduto() {
+        System.out.print("Digite o código do produto que deseja remover: ");
+        int codigo = leia.nextInt();
+        leia.nextLine();
+
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.deletarProduto(codigo);
+
+    }
+
+
+
+
+    }
+
+
+
+
