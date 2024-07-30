@@ -56,9 +56,9 @@ public class ProdutoRepository {
         try {
             System.out.println();
             System.out.println("****************************** LISTA DE PRODUTOS ******************************");
-            System.out.printf("Cod \t Nome \t Preço \t Status\n");
+            System.out.printf("Codigo \t Nome \t Quantidade  \t  Preço \t Status\n");
             while (resultSet.next()) {
-                System.out.printf("%d %s %.2f %s\n", resultSet.getInt("id"), resultSet.getString("nome"), resultSet.getDouble("preco"), resultSet.getString("status_prod"));
+                System.out.printf("%d %s %d %.2f %s\n", resultSet.getInt("idProduto"), resultSet.getString("nome"), resultSet.getInt("quantidade"), resultSet.getDouble("precoVenda"), resultSet.getString("status_produto"));
             }
 
             resultSet.close();

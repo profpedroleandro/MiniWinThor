@@ -1,5 +1,7 @@
+import entity.Fornecedor;
 import entity.Produto;
 import support.CadastroEndereco;
+import support.CadastroFornecedor;
 import support.Menu;
 
 public class Main {
@@ -7,8 +9,9 @@ public class Main {
 
         Produto produto = new Produto();
 
-        CadastroEndereco.cadastroEndereco();
 
+      //  CadastroEndereco.cadastroEndereco();
+     //   CadastroFornecedor.cadastroFornecedor();
         Menu.menu();
 
     }

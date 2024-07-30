@@ -3,6 +3,7 @@ package support;
 import entity.Produto;
 import repository.ProdutoRepository;
 
+import java.sql.ResultSet;
 import java.util.Scanner;
 
 public class Menu {
@@ -93,10 +94,10 @@ public class Menu {
 
     }
 
-    private static void listaDeProdutos() {
-
-        Produto produto = new Produto();
-
+    public static void listaDeProdutos() {
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.getProdutos();
+/*
         System.out.println("********************Listar Produtos********************");
         System.out.println("Nome do produto: " + produto.getNome());
         System.out.println("Descrição: " + produto.getDescricao());
@@ -106,7 +107,7 @@ public class Menu {
         System.out.println("Preço de Compra: " + produto.getPrecoDeCompra());
         System.out.println("Data da Última compra: " + produto.getDataDaUltimaCompra());
         System.out.println("Status: " + produto.getStatusProduto());
-
+*/
 
 
     }

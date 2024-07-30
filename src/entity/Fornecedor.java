@@ -4,9 +4,9 @@ public class Fornecedor {
 
     private int idFornecedor;
     private String razaoSocial;
-    private String nomeFantasia;
     private String cnpj;
     private String ie;
+    private String nomeFantasia;
 
     public int getIdFornecedor() {
         return idFornecedor;
