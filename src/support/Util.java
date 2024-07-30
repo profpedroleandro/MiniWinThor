@@ -43,7 +43,7 @@ public class Util {
                     break;
                 case 3:
                     System.out.println("Consultar produto\n");
-                    // Lógica para consultar produto
+                    pesquisarProdutoPorId();
                     Util.menu_principal();
                     break;
                 case 4:
@@ -185,9 +185,15 @@ public class Util {
         produtoRepository.getProdutos();
     }
 
-    public static void pesquisarProdutoById(){
+    public static void pesquisarProdutoPorId(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o ID do Produto: ");
-        int idprod = scanner.nextInt();
+        System.out.println("Digite o ID do produto: ");
+        int id = scanner.nextInt();
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.getProdutoById(id);
+
     }
+
+
+
 }
