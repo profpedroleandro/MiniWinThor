@@ -67,4 +67,38 @@ public class ProdutoRepository {
         }
     }
 
+    public void selecionarProduto(int id) {
+
+        Statement statement = null;
+        Connection connection = Conexao.getMinhaConexao();
+        try {
+            statement = (Statement) connection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        String comandoSQL = "SELECT * FROM produtos WHERE idProduto = " + id;
+
+        ResultSet resultSet = null;
+
+        try {
+            resultSet = statement.executeQuery(comandoSQL);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            System.out.println();
+            System.out.println("****************************** SELECIONAR PRODUTO ******************************");
+            System.out.printf("Codigo \t Nome \t Quantidade  \t  Preço \t Status\n");
+            while (resultSet.next()) {
+                System.out.printf("%d %s %d %.2f %s\n", resultSet.getInt("idProduto"), resultSet.getString("nome"), resultSet.getInt("quantidade"), resultSet.getDouble("precoVenda"), resultSet.getString("status_produto"));
+            }
+
+            resultSet.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

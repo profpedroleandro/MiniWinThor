@@ -33,6 +33,9 @@ public class Menu {
                 case 2:
                     listaDeProdutos();
                     break;
+                case 3:
+                    selecionarProduto();
+                    break;
                 default:
                     System.out.println("Digite uma opção válida");
                     break;
@@ -97,18 +100,17 @@ public class Menu {
     public static void listaDeProdutos() {
         ProdutoRepository produtoRepository = new ProdutoRepository();
         produtoRepository.getProdutos();
-/*
-        System.out.println("********************Listar Produtos********************");
-        System.out.println("Nome do produto: " + produto.getNome());
-        System.out.println("Descrição: " + produto.getDescricao());
-        System.out.println("Garantia: " + produto.getGarantia());
-        System.out.println("Quantidade: " + produto.getQuantidade());
-        System.out.println("Preço de Venda: " + produto.getPrecoDeVenda());
-        System.out.println("Preço de Compra: " + produto.getPrecoDeCompra());
-        System.out.println("Data da Última compra: " + produto.getDataDaUltimaCompra());
-        System.out.println("Status: " + produto.getStatusProduto());
-*/
+    }
 
+    public static void selecionarProduto(){
+
+        Scanner leia = new Scanner(System.in);
+        int id;
+        System.out.println("Insira o ID do pruduto desejado");
+        id = leia.nextInt();
+
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.selecionarProduto(id);
 
     }
 }
