@@ -55,15 +55,16 @@ public class ProdutoRepository {
         try {
             System.out.println();
             System.out.println("****************************** LISTA DE PRODUTOS ******************************");
-            System.out.printf("Cod \t Nome \t Preço \t Status\n");
+            System.out.printf("ID \t Nome \t Preço de Compra \t Preço de Venda \t Quantidade \t Código do Produto \t  Descricao\n");
             while (resultSet.next()) {
-                System.out.printf("%d %s %.2f %s\n", resultSet.getInt("id"), resultSet.getString("nome"), resultSet.getDouble("preco"), resultSet.getString("status_prod"));
+                System.out.printf("%d %s %.2f %.2f %d %d %s \n", resultSet.getInt("idProduto"), resultSet.getString("nome"), resultSet.getDouble("preco_compra"), resultSet.getDouble("preco_venda"), resultSet.getInt("quantidade"), resultSet.getInt("codigo_do_produto"), resultSet.getString("descricao"));
             }
 
             resultSet.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 }

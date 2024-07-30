@@ -38,7 +38,7 @@ public class Util {
                     break;
                 case 2:
                     System.out.println("Listagem de produtos\n");
-                    // Lógica para listar produtos
+                    listarProduto();
                     Util.menu_principal();
                     break;
                 case 3:
@@ -178,5 +178,16 @@ public class Util {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite a opção desejada: ");
         return scanner.nextInt();
+    }
+
+    public static void listarProduto(){
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.getProdutos();
+    }
+
+    public static void pesquisarProdutoById(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o ID do Produto: ");
+        int idprod = scanner.nextInt();
     }
 }
