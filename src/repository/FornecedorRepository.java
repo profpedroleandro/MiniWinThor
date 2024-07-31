@@ -62,7 +62,7 @@ public class FornecedorRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+;;
 
     }
 

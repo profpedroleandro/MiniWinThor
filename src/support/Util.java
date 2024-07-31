@@ -47,8 +47,8 @@ public class Util {
                     Util.menu_principal();
                     break;
                 case 4:
-                    System.out.println("Atualizar produto\n");
-                    // Lógica para atualizar produto
+                    System.out.println("-----------------------Atualizar produto-------------------------------\n");
+                    atualizarProdutoPorId();
                     Util.menu_principal();
                     break;
                 case 5:
@@ -186,11 +186,87 @@ public class Util {
     }
 
     public static void pesquisarProdutoPorId(){
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o ID do produto: ");
         int id = scanner.nextInt();
+
         ProdutoRepository produtoRepository = new ProdutoRepository();
         produtoRepository.getProdutoById(id);
+
+    }
+
+
+
+
+
+    public static void atualizarProdutoPorId(){
+        Scanner scanner = new Scanner(System.in);
+
+        Produto produto = new Produto();
+
+        System.out.println("Digite o ID do produto: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.printf("\nQual vai ser o novo nome do Produto: ");
+        String nome = scanner.nextLine();
+
+        System.out.printf("\nQual vai ser o novo preço de compra: ");
+        double precoCompra = scanner.nextDouble();
+
+
+        System.out.printf("\nQual vai ser o novo preço de venda: ");
+        double precoVenda = scanner.nextDouble();
+
+
+        System.out.printf("\nQual vai ser o nova quantidade: ");
+        int quantidade = scanner.nextInt();
+
+
+
+        System.out.printf("\nQual vai ser o novo codigo do produto: ");
+        int codigo = scanner.nextInt();
+        scanner.nextLine();
+
+
+        System.out.printf("\nQual vai ser o nova descrição: ");
+        String descricao = scanner.nextLine();
+
+
+        System.out.printf("\nDigite a nova Data de Validade(aaaa-mm-dd): ");
+        String dataValidade = scanner.nextLine();
+
+
+        System.out.printf("\nQual vai ser a atualização de disponibilidade Disponibilidade (1- Ativo 2-Fora de Linha): ");
+        String disponibilidade = scanner.nextLine();
+
+        if (disponibilidade == "1"){
+            disponibilidade = "ATIVO";
+        } else if (disponibilidade == "2"){
+            disponibilidade = "FORA DE LINHA";
+        }else {
+            disponibilidade = "ATIVO";
+        }
+
+
+        System.out.printf("\nDigite o novo ID do Fornecedor: ");
+        int fornecedor = scanner.nextInt();
+
+        produto.setNome(nome);
+        produto.setPreco_compra(precoCompra);
+        produto.setPreco_venda(precoVenda);
+        produto.setQuantidade(quantidade);
+        produto.setCodigo_do_produto(codigo);
+        produto.setDescricao(descricao);
+        produto.setData_de_validade(dataValidade);
+        produto.setDisponibilidade(disponibilidade);
+        produto.setFornecedor(fornecedor);
+
+
+        String atributo = scanner.nextLine();
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.atualizarProduto(produto, id);
 
     }
 
