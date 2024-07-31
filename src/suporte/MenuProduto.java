@@ -27,7 +27,7 @@ public class MenuProduto {
         System.out.println("Informe a data de compra: ");
         String dataCompra = leia.nextLine();
 
-        System.out.print("Informe o status do produto: ");
+        System.out.print("Informe o status do produto (A/F/P): ");
         String status = leia.nextLine();
 
         System.out.print("Informe o peso do produto: ");
@@ -99,7 +99,7 @@ public class MenuProduto {
         String dataCompra = leia.nextLine();
         produto.setDataCompra(dataCompra);
 
-        System.out.print("Informe o novo status do produto: ");
+        System.out.print("Informe o novo status do produto (A/P/F) : ");
         String status = leia.nextLine();
         produto.setStatus(status);
 

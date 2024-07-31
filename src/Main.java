@@ -1,5 +1,4 @@
 import suporte.MenuProduto;
-import suporte.MenuFornecedor;
 
 import java.util.Scanner;
 
@@ -37,6 +36,7 @@ public class Main {
         leia.nextLine();
 
         switch (opcao) {
+
             case 1:
                 MenuProduto.cadastrarProduto();
                 break;
@@ -60,40 +60,7 @@ public class Main {
                 System.out.println("\nOpção inválida. Tente novamente.");
         }
     }
-
-    public static void menuFornecedor() {
-        System.out.println("\n--- Sistema de Fornecedores ---");
-        System.out.println("1. Cadastrar Fornecedor");
-        System.out.println("2. Listar Fornecedores");
-        System.out.println("3. Buscar Fornecedor");
-        System.out.println("4. Remover Fornecedor");
-        System.out.println("0. Voltar");
-
-        System.out.print("Digite a opção desejada: ");
-        int opcao = leia.nextInt();
-        leia.nextLine();
-
-        switch (opcao) {
-            case 1:
-                MenuFornecedor.cadastrarForcenedor();
-                break;
-            case 2:
-                MenuFornecedor.listarFornecedores();
-                break;
-            case 3:
-                MenuFornecedor.fornecedorById();
-                break;
-            case 4:
-                MenuFornecedor.removerFornecedor();
-                break;
-            case 0:
-                System.out.println("\nSaindo do sistema...");
-                System.exit(0);
-            default:
-                System.out.println("\nOpção inválida. Tente novamente.");
-        }
-
-    }
+    
 
     private static boolean perguntarContinuar() {
         System.out.print("\nDeseja voltar para o menu? (S/N): ");
