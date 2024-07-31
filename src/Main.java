@@ -1,10 +1,6 @@
-import entity.Produto;
-import repository.ProdutoRepository;
 import suporte.MenuProduto;
 import suporte.MenuFornecedor;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +9,7 @@ public class Main {
 
     MenuProduto menuProduto = new MenuProduto();
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
         boolean continuar;
 
@@ -98,14 +94,12 @@ public class Main {
         }
 
     }
+
     private static boolean perguntarContinuar() {
         System.out.print("\nDeseja voltar para o menu? (S/N): ");
         String resposta = leia.nextLine().toUpperCase();
         return resposta.equals("S");
     }
-
-
-
 
 
 }

@@ -7,7 +7,7 @@ public class ProdutoRepository {
 
     public void inserirProduto(Produto produto) {
 
-        String comandoSQL = "INSERT INTO produtos (idProduto, fornecedor, nome, descricao, preco_compra, data_compra, status_produto, quantidade, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String comandoSQL = "INSERT INTO produtos (fornecedor, nome, descricao, preco_compra, data_compra, status_produto, quantidade, peso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = null;
 
