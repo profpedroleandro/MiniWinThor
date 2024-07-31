@@ -120,6 +120,27 @@ public class ProdutoRepository {
             preparedStatement.execute();
             preparedStatement.close();
 
+            System.out.println("Produto atualizado com sucesso!");
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void deletarProduto(int id) {
+
+        String comandoSQL = "DELETE FROM produtos WHERE idProduto = " +id;
+
+        PreparedStatement preparedStatement = null;
+
+        try {
+            preparedStatement = Conexao.getMinhaConexao().prepareStatement(comandoSQL);
+            preparedStatement.execute();
+            preparedStatement.close();
+
+            System.out.println("Produto deletado com sucesso!");
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

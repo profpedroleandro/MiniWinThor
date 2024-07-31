@@ -53,7 +53,7 @@ public class Util {
                     break;
                 case 5:
                     System.out.println("Excluir produto\n");
-                    // Lógica para excluir produto
+                    deletarProdutoPorId();
                     Util.menu_principal();
                     break;
                 case 6:
@@ -170,7 +170,7 @@ public class Util {
         // Supondo que ProdutoRepository seja uma classe que lida com o cadastro de produtos
         new FornecedorRepository().cadastrarFornecedor(fornecedor);
 
-        System.out.println("Produto cadastrado com sucesso.");
+        System.out.println("Fornecedor cadastrado com sucesso.");
     }
 
 
@@ -267,6 +267,17 @@ public class Util {
         String atributo = scanner.nextLine();
         ProdutoRepository produtoRepository = new ProdutoRepository();
         produtoRepository.atualizarProduto(produto, id);
+
+    }
+
+    public static void deletarProdutoPorId(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o ID do produto: ");
+        int id = scanner.nextInt();
+
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        produtoRepository.deletarProduto(id);
 
     }
 
